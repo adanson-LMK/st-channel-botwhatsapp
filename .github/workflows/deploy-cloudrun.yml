@@ -1,85 +1,85 @@
-name: Deploy to Google Cloud Run
-
-on:
-  push:
-    branches:
-      - main
-      - develop
-      - qas
-
-env:
-  PROJECT_ID: ${{ secrets.GCP_PROJECT_ID }}
-  REGION: us-central1 # Cambia esto a la región que prefieras (ej. us-east1)
-  REPO_NAME: flowchat-repo # Nombre del repositorio en Google Artifact Registry
-
-jobs:
-  build-and-deploy:
-    runs-on: ubuntu-latest
-    permissions:
-      contents: 'read'
-      id-token: 'write' # Necesario para Workload Identity Federation
-
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Set Environment Variables based on branch
-        id: set-env
-        run: |
-          if [[ "${{ github.ref }}" == "refs/heads/main" ]]; then
-            echo "ENV_NAME=prod" >> $GITHUB_ENV
-            echo "SERVICE_NAME=flowchat-prod" >> $GITHUB_ENV
-          elif [[ "${{ github.ref }}" == "refs/heads/qas" ]]; then
-            echo "ENV_NAME=qas" >> $GITHUB_ENV
-            echo "SERVICE_NAME=flowchat-qas" >> $GITHUB_ENV
-          elif [[ "${{ github.ref }}" == "refs/heads/develop" ]]; then
-            echo "ENV_NAME=dev" >> $GITHUB_ENV
-            echo "SERVICE_NAME=flowchat-dev" >> $GITHUB_ENV
-          fi
-
-      - name: Google Auth
-        id: auth
-        uses: google-github-actions/auth@v2
-        with:
-          # Recomendado: Usa Workload Identity Federation en lugar de Service Account Keys
-          workload_identity_provider: '${{ secrets.WIF_PROVIDER }}'
-          service_account: '${{ secrets.WIF_SERVICE_ACCOUNT }}'
-          
-          # Si prefieres usar una clave JSON tradicional, comenta las dos líneas de arriba y usa esta:
-          # credentials_json: '${{ secrets.GCP_CREDENTIALS }}'
-
-      - name: Set up Cloud SDK
-        uses: google-github-actions/setup-gcloud@v2
-
-      - name: Docker Auth
-        id: docker-auth
-        run: |-
-          gcloud auth configure-docker ${{ env.REGION }}-docker.pkg.dev
-
-      - name: Build and Push Docker image
-        run: |-
-          IMAGE_PATH="${{ env.REGION }}-docker.pkg.dev/${{ env.PROJECT_ID }}/${{ env.REPO_NAME }}/${{ env.SERVICE_NAME }}:${{ github.sha }}"
-          
-          docker build -t "$IMAGE_PATH" .
-          docker push "$IMAGE_PATH"
-          
-          echo "IMAGE_PATH=$IMAGE_PATH" >> $GITHUB_ENV
-
-      - name: Deploy to Cloud Run
-        id: deploy
-        uses: google-github-actions/deploy-cloudrun@v2
-        with:
-          service: ${{ env.SERVICE_NAME }}
-          region: ${{ env.REGION }}
-          image: ${{ env.IMAGE_PATH }}
-          flags: '--allow-unauthenticated'
-          env_vars: |
-            DJANGO_ENV=${{ env.ENV_NAME }}
-            DJANGO_SETTINGS_MODULE=config.settings.${{ env.ENV_NAME }}
-          # Puedes agregar los secretos desde GitHub Secrets aquí:
-          # secrets: |
-          #   SECRET_KEY=SECRET_KEY:latest
-          #   DATABASE_URL=DATABASE_URL:latest
-
-      - name: Show Output
-        run: echo "App deployed successfully to ${{ steps.deploy.outputs.url }}"
+# name: Deploy to Google Cloud Run
+# 
+# on:
+#   push:
+#     branches:
+#       - main
+#       - develop
+#       - qas
+# 
+# env:
+#   PROJECT_ID: ${{ secrets.GCP_PROJECT_ID }}
+#   REGION: us-central1 # Cambia esto a la región que prefieras (ej. us-east1)
+#   REPO_NAME: flowchat-repo # Nombre del repositorio en Google Artifact Registry
+# 
+# jobs:
+#   build-and-deploy:
+#     runs-on: ubuntu-latest
+#     permissions:
+#       contents: 'read'
+#       id-token: 'write' # Necesario para Workload Identity Federation
+# 
+#     steps:
+#       - name: Checkout code
+#         uses: actions/checkout@v4
+# 
+#       - name: Set Environment Variables based on branch
+#         id: set-env
+#         run: |
+#           if [[ "${{ github.ref }}" == "refs/heads/main" ]]; then
+#             echo "ENV_NAME=prod" >> $GITHUB_ENV
+#             echo "SERVICE_NAME=flowchat-prod" >> $GITHUB_ENV
+#           elif [[ "${{ github.ref }}" == "refs/heads/qas" ]]; then
+#             echo "ENV_NAME=qas" >> $GITHUB_ENV
+#             echo "SERVICE_NAME=flowchat-qas" >> $GITHUB_ENV
+#           elif [[ "${{ github.ref }}" == "refs/heads/develop" ]]; then
+#             echo "ENV_NAME=dev" >> $GITHUB_ENV
+#             echo "SERVICE_NAME=flowchat-dev" >> $GITHUB_ENV
+#           fi
+# 
+#       - name: Google Auth
+#         id: auth
+#         uses: google-github-actions/auth@v2
+#         with:
+#           # Recomendado: Usa Workload Identity Federation en lugar de Service Account Keys
+#           workload_identity_provider: '${{ secrets.WIF_PROVIDER }}'
+#           service_account: '${{ secrets.WIF_SERVICE_ACCOUNT }}'
+#           
+#           # Si prefieres usar una clave JSON tradicional, comenta las dos líneas de arriba y usa esta:
+#           # credentials_json: '${{ secrets.GCP_CREDENTIALS }}'
+# 
+#       - name: Set up Cloud SDK
+#         uses: google-github-actions/setup-gcloud@v2
+# 
+#       - name: Docker Auth
+#         id: docker-auth
+#         run: |-
+#           gcloud auth configure-docker ${{ env.REGION }}-docker.pkg.dev
+# 
+#       - name: Build and Push Docker image
+#         run: |-
+#           IMAGE_PATH="${{ env.REGION }}-docker.pkg.dev/${{ env.PROJECT_ID }}/${{ env.REPO_NAME }}/${{ env.SERVICE_NAME }}:${{ github.sha }}"
+#           
+#           docker build -t "$IMAGE_PATH" .
+#           docker push "$IMAGE_PATH"
+#           
+#           echo "IMAGE_PATH=$IMAGE_PATH" >> $GITHUB_ENV
+# 
+#       - name: Deploy to Cloud Run
+#         id: deploy
+#         uses: google-github-actions/deploy-cloudrun@v2
+#         with:
+#           service: ${{ env.SERVICE_NAME }}
+#           region: ${{ env.REGION }}
+#           image: ${{ env.IMAGE_PATH }}
+#           flags: '--allow-unauthenticated'
+#           env_vars: |
+#             DJANGO_ENV=${{ env.ENV_NAME }}
+#             DJANGO_SETTINGS_MODULE=config.settings.${{ env.ENV_NAME }}
+#           # Puedes agregar los secretos desde GitHub Secrets aquí:
+#           # secrets: |
+#           #   SECRET_KEY=SECRET_KEY:latest
+#           #   DATABASE_URL=DATABASE_URL:latest
+# 
+#       - name: Show Output
+#         run: echo "App deployed successfully to ${{ steps.deploy.outputs.url }}"
