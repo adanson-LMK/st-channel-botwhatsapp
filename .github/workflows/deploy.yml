@@ -1,0 +1,52 @@
+name: Deploy to GCP
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Set up Cloud SDK
+      uses: google-github-actions/setup-gcloud@v1
+      with:
+        project_id: ${{ secrets.GCP_PROJECT_ID }}
+        service_account_key: ${{ secrets.GCP_SA_KEY }}
+
+    - name: Configure Docker with gcloud
+      run: |
+        gcloud auth configure-docker
+
+    - name: Build Docker image
+      env:
+        IMAGE_NAME: gcr.io/${{ secrets.GCP_PROJECT_ID }}/st-whatsapp
+        IMAGE_TAG: latest
+      run: |
+        docker build -t $IMAGE_NAME:$IMAGE_TAG .
+        docker tag $IMAGE_NAME:$IMAGE_TAG $IMAGE_NAME:$GITHUB_SHA
+
+    - name: Push image to Container Registry
+      env:
+        IMAGE_NAME: gcr.io/${{ secrets.GCP_PROJECT_ID }}/st-whatsapp
+      run: |
+        docker push $IMAGE_NAME:latest
+        docker push $IMAGE_NAME:$GITHUB_SHA
+
+    - name: Deploy to App Engine
+      run: |
+        gcloud app deploy app.yaml --quiet --image-url=gcr.io/${{ secrets.GCP_PROJECT_ID }}/st-whatsapp:$GITHUB_SHA
+
+    - name: Run database migrations
+      run: |
+        gcloud app services describe default --region us-central1
+        # Ejecutar migrations (esto podría requerir configuración adicional)
+
+    - name: Notify deployment
+      run: |
+        echo "✅ Deployment complete!"
+        echo "App URL: https://${{ secrets.GCP_PROJECT_ID }}.appspot.com"

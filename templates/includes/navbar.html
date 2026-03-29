@@ -1,0 +1,33 @@
+<!-- Mobile Menu -->
+<div id="mobile-menu">
+  <a href="#hero" onclick="closeMobile()">Inicio</a>
+  <a href="#problem" onclick="closeMobile()">Problema</a>
+  <a href="#how" onclick="closeMobile()">Cómo Funciona</a>
+  <a href="#roi" onclick="closeMobile()">Beneficios</a>
+  <a href="#pricing" onclick="closeMobile()">Precios</a>
+  <button class="btn-primary px-8 py-4 text-lg mt-4" onclick="closeMobile()">Prueba Gratis</button>
+</div>
+
+<!-- NAVBAR -->
+<nav id="navbar">
+  <div style="max-width:1280px;margin:0 auto;padding:0 32px;height:80px;display:flex;align-items:center;justify-content:space-between;">
+    <div class="font-clash" style="font-size:22px;font-weight:800;letter-spacing:-0.5px;color:var(--cyan);">CONAUTI WHATS</div>
+
+    <div class="hidden md:flex" style="gap:36px;align-items:center;">
+      <a class="nav-link" href="#hero">Inicio</a>
+      <a class="nav-link" href="#problem">Problema</a>
+      <a class="nav-link" href="#how">Cómo Funciona</a>
+      <a class="nav-link" href="#roi">Beneficios</a>
+      <a class="nav-link" href="#pricing">Precios</a>
+    </div>
+
+    <div style="display:flex;gap:12px;align-items:center;">
+      <button class="btn-ghost hidden md:block" style="padding:10px 24px;font-size:14px;">Iniciar Sesión</button>
+      <button class="btn-primary hidden md:block" style="padding:10px 24px;font-size:14px;">Prueba Gratis</button>
+      <!-- Hamburger -->
+      <button id="hamburger" class="md:hidden" onclick="toggleMobile()" style="background:none;border:none;color:rgba(229,225,228,0.8);cursor:none;padding:8px;">
+        <span class="material-symbols-outlined" style="font-size:28px;">menu</span>
+      </button>
+    </div>
+  </div>
+</nav>

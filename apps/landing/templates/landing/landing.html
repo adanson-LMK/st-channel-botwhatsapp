@@ -1,0 +1,493 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Conauti Whats - Automatiza tus proyectos sin salir de WhatsApp{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'landing/css/landing.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<!-- ── HERO ── -->
+<section id="hero" style="position:relative;padding:160px 32px 120px;overflow:hidden;min-height:100vh;display:flex;align-items:center;">
+  <div class="mesh-bg"></div>
+
+  <!-- Decorative grid lines -->
+  <div style="position:absolute;inset:0;pointer-events:none;opacity:0.03;background-image:linear-gradient(rgba(0,240,255,1) 1px, transparent 1px),linear-gradient(90deg, rgba(0,240,255,1) 1px, transparent 1px);background-size:60px 60px;"></div>
+
+  <div id="hero-grid" style="width:100%;max-width:1280px;margin:0 auto;display:grid;grid-template-columns:1fr;gap:60px;align-items:center;position:relative;z-index:1;">
+
+    <div id="hero-text" style="min-width:0;">
+      <!-- Badge -->
+      <div class="hero-badge" style="display:inline-flex;align-items:center;gap:8px;padding:6px 16px;border-radius:9999px;border:1px solid rgba(0,240,255,0.25);background:rgba(0,240,255,0.06);margin-bottom:32px;">
+        <span style="width:6px;height:6px;border-radius:50%;background:var(--cyan);display:inline-block;animation:blink 2s infinite;"></span>
+        <span style="font-size:11px;font-weight:700;letter-spacing:0.2em;color:var(--cyan);text-transform:uppercase;">Sistema Multiagente · IA en Tiempo Real</span>
+      </div>
+
+      <!-- Headline -->
+      <h1 class="font-clash" style="line-height:0.88;letter-spacing:-2px;margin-bottom:28px;">
+        <span class="hero-line-1" style="display:block;font-size:clamp(52px,8vw,96px);font-weight:800;color:#fff;">Automatiza</span>
+        <span class="hero-line-2" style="display:block;font-size:clamp(44px,7vw,82px);font-weight:200;color:rgba(0,240,255,0.75);">tus proyectos</span>
+        <span class="hero-line-3" style="display:block;font-size:clamp(42px,7vw,82px);font-weight:800;color:#fff;">sin salir de<br><span class="gradient-text">WhatsApp.</span></span>
+      </h1>
+
+      <p class="hero-sub" style="font-size:clamp(16px,2vw,20px);color:rgba(229,225,228,0.55);line-height:1.7;font-weight:300;max-width:540px;margin-bottom:40px;">
+        El primer sistema multiagente de IA que transforma el caos de tus chats en tareas, dashboards y eventos de calendario — <em style="color:rgba(229,225,228,0.8);font-style:normal;">automáticamente.</em>
+      </p>
+
+      <div class="hero-btns" style="display:flex;gap:16px;flex-wrap:wrap;">
+        <button class="btn-primary" style="padding:16px 36px;font-size:16px;display:flex;align-items:center;gap:8px;">
+          <span class="material-symbols-outlined" style="font-size:20px;">rocket_launch</span>
+          Comenzar 14 Días Gratis
+        </button>
+        <button class="btn-ghost" style="padding:16px 32px;font-size:16px;display:flex;align-items:center;gap:8px;">
+          <span class="material-symbols-outlined" style="font-size:20px;">play_circle</span>
+          Ver Demo
+        </button>
+      </div>
+
+      <!-- Social proof -->
+      <div class="hero-btns" style="margin-top:48px;display:flex;align-items:center;gap:20px;flex-wrap:wrap;">
+        <div style="display:flex;">
+          <div style="width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,#667eea,#764ba2);border:2px solid #131315;margin-right:-10px;"></div>
+          <div style="width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,#f093fb,#f5576c);border:2px solid #131315;margin-right:-10px;"></div>
+          <div style="width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,#4facfe,#00f2fe);border:2px solid #131315;margin-right:-10px;"></div>
+          <div style="width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,#43e97b,#38f9d7);border:2px solid #131315;"></div>
+        </div>
+        <div>
+          <p style="font-size:13px;color:rgba(229,225,228,0.5);"><strong style="color:rgba(229,225,228,0.85);">+500 empresas</strong> ya usan Conauti Whats</p>
+          <div style="display:flex;gap:2px;margin-top:2px;">
+            <span style="color:#f59e0b;font-size:12px;">★★★★★</span>
+            <span style="font-size:11px;color:rgba(229,225,228,0.4);margin-left:4px;">4.9/5</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Hero Visual: WhatsApp Chat Mockup -->
+    <div id="hero-chat" style="display:flex;justify-content:center;align-items:center;">
+      <div class="float-card glass" style="border-radius:24px;width:340px;overflow:hidden;box-shadow:0 40px 80px rgba(0,0,0,0.5),0 0 40px rgba(0,240,255,0.1);">
+        <!-- WA Header -->
+        <div style="background:#1a2f20;padding:16px 20px;display:flex;align-items:center;gap:12px;border-bottom:1px solid rgba(255,255,255,0.06);">
+          <div style="width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,var(--cyan),var(--green));display:flex;align-items:center;justify-content:center;">
+            <span class="material-symbols-outlined" style="font-size:20px;color:#131315;">smart_toy</span>
+          </div>
+          <div>
+            <p style="font-weight:700;font-size:14px;color:#fff;">@ConautiWhats</p>
+            <p style="font-size:11px;color:#25d366;">● online · procesando</p>
+          </div>
+          <span class="material-symbols-outlined" style="margin-left:auto;color:rgba(255,255,255,0.3);font-size:20px;">more_vert</span>
+        </div>
+
+        <!-- Chat body -->
+        <div id="chat-body" style="background:#0d1f13;padding:16px 8px;min-height:300px;display:flex;flex-direction:column;gap:8px;overflow:hidden;">
+          <!-- messages injected by JS -->
+        </div>
+
+        <!-- Input bar -->
+        <div style="background:#1a2f20;padding:10px 16px;display:flex;align-items:center;gap:10px;border-top:1px solid rgba(255,255,255,0.06);">
+          <div style="flex:1;background:rgba(255,255,255,0.06);border-radius:20px;padding:8px 16px;font-size:13px;color:rgba(255,255,255,0.3);">Escribe un mensaje...</div>
+          <div style="width:36px;height:36px;border-radius:50%;background:var(--green);display:flex;align-items:center;justify-content:center;">
+            <span class="material-symbols-outlined" style="font-size:18px;color:#fff;">mic</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- end hero-grid -->
+</section>
+
+<!-- ── PROBLEMA ── -->
+<section id="problem" style="padding:120px 32px;background:#0e0e10;position:relative;overflow:hidden;">
+  <div style="position:absolute;top:-100px;right:-100px;width:400px;height:400px;background:radial-gradient(circle,rgba(239,68,68,0.06),transparent 70%);pointer-events:none;"></div>
+  <div style="max-width:1280px;margin:0 auto;">
+    <div class="reveal" style="display:flex;flex-direction:column;gap:12px;margin-bottom:80px;border-bottom:1px solid rgba(255,255,255,0.05);padding-bottom:40px;">
+      <div style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:20px;">
+        <div>
+          <p style="font-size:11px;font-weight:700;letter-spacing:0.2em;color:var(--cyan);text-transform:uppercase;margin-bottom:12px;">El Problema</p>
+          <h2 class="font-clash" style="font-size:clamp(36px,5vw,60px);font-weight:700;line-height:1.1;max-width:500px;">El caos invisible de<br>coordinar por chat.</h2>
+        </div>
+        <div class="font-clash" style="font-size:96px;font-weight:200;opacity:0.08;color:var(--cyan);line-height:1;">01</div>
+      </div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;">
+
+      <div class="reveal reveal-delay-1 glass stat-card" style="padding:40px;border-radius:20px;">
+        <div style="width:56px;height:56px;border-radius:16px;background:rgba(239,68,68,0.1);border:1px solid rgba(239,68,68,0.2);display:flex;align-items:center;justify-content:center;margin-bottom:24px;">
+          <span class="material-symbols-outlined" style="color:#ef4444;font-size:28px;">warning</span>
+        </div>
+        <div class="font-clash" style="font-size:56px;font-weight:700;color:#ef4444;margin-bottom:8px;">95<span style="font-size:28px;color:rgba(229,225,228,0.4);">%</span></div>
+        <h3 style="font-size:14px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:rgba(229,225,228,0.5);margin-bottom:12px;">Ruido</h3>
+        <p style="color:rgba(229,225,228,0.5);line-height:1.6;font-size:15px;">Información crítica enterrada en cientos de mensajes grupales irrelevantes y memes.</p>
+      </div>
+
+      <div class="reveal reveal-delay-2 glass stat-card" style="padding:40px;border-radius:20px;">
+        <div style="width:56px;height:56px;border-radius:16px;background:rgba(251,191,36,0.1);border:1px solid rgba(251,191,36,0.2);display:flex;align-items:center;justify-content:center;margin-bottom:24px;">
+          <span class="material-symbols-outlined" style="color:#fbbf24;font-size:28px;">schedule</span>
+        </div>
+        <div class="font-clash" style="font-size:56px;font-weight:700;color:#fbbf24;margin-bottom:8px;">1.5<span style="font-size:28px;color:rgba(229,225,228,0.4);">h</span></div>
+        <h3 style="font-size:14px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:rgba(229,225,228,0.5);margin-bottom:12px;">Perdidas / día</h3>
+        <p style="color:rgba(229,225,228,0.5);line-height:1.6;font-size:15px;">Tiempo promedio diario desperdiciado buscando confirmaciones y archivos entre chats.</p>
+      </div>
+
+      <div class="reveal reveal-delay-3 glass stat-card" style="padding:40px;border-radius:20px;">
+        <div style="width:56px;height:56px;border-radius:16px;background:rgba(0,240,255,0.08);border:1px solid rgba(0,240,255,0.15);display:flex;align-items:center;justify-content:center;margin-bottom:24px;">
+          <span class="material-symbols-outlined" style="color:var(--cyan);font-size:28px;">error</span>
+        </div>
+        <div class="font-clash" style="font-size:56px;font-weight:700;color:var(--cyan);margin-bottom:8px;">10<span style="font-size:28px;color:rgba(229,225,228,0.4);">%</span></div>
+        <h3 style="font-size:14px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:rgba(229,225,228,0.5);margin-bottom:12px;">Retrabajo</h3>
+        <p style="color:rgba(229,225,228,0.5);line-height:1.6;font-size:15px;">Tareas mal ejecutadas o duplicadas por falta de visibilidad en el flujo real de decisiones.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CÓMO FUNCIONA ── -->
+<section id="how" style="padding:120px 32px;position:relative;overflow:hidden;">
+  <div style="position:absolute;inset:0;background:radial-gradient(ellipse 70% 50% at 50% 50%,rgba(0,240,255,0.03),transparent);pointer-events:none;"></div>
+  <div style="max-width:1280px;margin:0 auto;position:relative;z-index:1;">
+    <div class="reveal" style="text-align:center;margin-bottom:80px;">
+      <p style="font-size:11px;font-weight:700;letter-spacing:0.2em;color:var(--cyan);text-transform:uppercase;margin-bottom:12px;">El Programa</p>
+      <h2 class="font-clash" style="font-size:clamp(36px,5vw,56px);font-weight:800;margin-bottom:16px;">Flujo de Ejecución Minimalista</h2>
+      <p style="color:rgba(229,225,228,0.45);font-size:18px;font-weight:300;">De la conversación a la acción en tres simples pasos.</p>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:0;position:relative;">
+
+      <!-- Connector lines -->
+      <div style="position:absolute;top:52px;left:calc(16.66% + 52px);right:calc(16.66% + 52px);height:1px;background:linear-gradient(90deg,rgba(0,240,255,0.4),rgba(16,185,129,0.4));pointer-events:none;" class="hidden lg:block"></div>
+
+      <div class="reveal reveal-delay-1" style="text-align:center;padding:32px 40px 40px;">
+        <div style="position:relative;display:inline-flex;margin-bottom:24px;">
+          <div style="width:80px;height:80px;border-radius:50%;background:rgba(0,240,255,0.08);border:1px solid rgba(0,240,255,0.2);display:flex;align-items:center;justify-content:center;position:relative;z-index:1;">
+            <span class="material-symbols-outlined" style="color:var(--cyan);font-size:36px;">person_add</span>
+          </div>
+          <div style="position:absolute;inset:-8px;border-radius:50%;border:1px dashed rgba(0,240,255,0.15);animation:spin 12s linear infinite;"></div>
+        </div>
+        <div style="display:inline-block;background:rgba(0,240,255,0.1);color:var(--cyan);font-size:11px;font-weight:700;padding:3px 10px;border-radius:9999px;margin-bottom:12px;letter-spacing:0.1em;">PASO 01</div>
+        <h4 class="font-clash" style="font-size:26px;font-weight:700;margin-bottom:12px;">Invita</h4>
+        <p style="color:rgba(229,225,228,0.5);line-height:1.6;font-size:15px;">Agrega a @ConautiWhats a tu grupo de WhatsApp en un clic como un miembro más.</p>
+      </div>
+
+      <div class="reveal reveal-delay-2" style="text-align:center;padding:32px 40px 40px;">
+        <div style="position:relative;display:inline-flex;margin-bottom:24px;">
+          <div style="width:80px;height:80px;border-radius:50%;background:rgba(16,185,129,0.08);border:1px solid rgba(16,185,129,0.25);display:flex;align-items:center;justify-content:center;position:relative;z-index:1;">
+            <span class="material-symbols-outlined" style="color:var(--green);font-size:36px;">forum</span>
+          </div>
+          <div style="position:absolute;inset:-8px;border-radius:50%;border:1px dashed rgba(16,185,129,0.15);animation:spin 16s linear infinite reverse;"></div>
+        </div>
+        <div style="display:inline-block;background:rgba(16,185,129,0.1);color:var(--green);font-size:11px;font-weight:700;padding:3px 10px;border-radius:9999px;margin-bottom:12px;letter-spacing:0.1em;">PASO 02</div>
+        <h4 class="font-clash" style="font-size:26px;font-weight:700;margin-bottom:12px;">Habla</h4>
+        <p style="color:rgba(229,225,228,0.5);line-height:1.6;font-size:15px;">Coordina como siempre. La IA escucha en segundo plano, filtra el ruido y extrae acciones.</p>
+      </div>
+
+      <div class="reveal reveal-delay-3" style="text-align:center;padding:32px 40px 40px;">
+        <div style="position:relative;display:inline-flex;margin-bottom:24px;">
+          <div style="width:80px;height:80px;border-radius:50%;background:rgba(0,240,255,0.08);border:1px solid rgba(0,240,255,0.2);display:flex;align-items:center;justify-content:center;position:relative;z-index:1;">
+            <span class="material-symbols-outlined" style="color:var(--cyan);font-size:36px;">auto_awesome</span>
+          </div>
+          <div style="position:absolute;inset:-8px;border-radius:50%;border:1px dashed rgba(0,240,255,0.15);animation:spin 20s linear infinite;"></div>
+        </div>
+        <div style="display:inline-block;background:rgba(0,240,255,0.1);color:var(--cyan);font-size:11px;font-weight:700;padding:3px 10px;border-radius:9999px;margin-bottom:12px;letter-spacing:0.1em;">PASO 03</div>
+        <h4 class="font-clash" style="font-size:26px;font-weight:700;margin-bottom:12px;">Ordena</h4>
+        <p style="color:rgba(229,225,228,0.5);line-height:1.6;font-size:15px;">Accede a dashboards, calendarios y reportes de progreso generados automáticamente.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── BENEFICIOS / MÉTRICAS ── -->
+<section id="roi" style="padding:120px 32px;background:#0e0e10;position:relative;overflow:hidden;">
+  <div style="position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(0,240,255,0.3),transparent);"></div>
+  <div style="max-width:1280px;margin:0 auto;">
+    <div class="reveal" style="text-align:center;margin-bottom:80px;">
+      <p style="font-size:11px;font-weight:700;letter-spacing:0.2em;color:var(--cyan);text-transform:uppercase;margin-bottom:12px;">Los Beneficios</p>
+      <h2 class="font-clash" style="font-size:clamp(36px,5vw,56px);font-weight:800;">Métricas Reales</h2>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:2px;background:rgba(255,255,255,0.04);border-radius:24px;overflow:hidden;border:1px solid rgba(255,255,255,0.06);">
+
+      <div class="reveal reveal-delay-1" style="padding:48px 40px;background:#131315;text-align:center;">
+        <div class="font-clash" style="font-size:72px;font-weight:200;line-height:1;margin-bottom:12px;">
+          <span id="counter-1" style="color:var(--cyan);" data-target="87">0</span><span style="font-size:36px;color:rgba(229,225,228,0.3);">%</span>
+        </div>
+        <p style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:0.15em;color:rgba(229,225,228,0.4);margin-bottom:8px;">Time Saved</p>
+        <p style="font-size:13px;color:rgba(229,225,228,0.3);font-family:monospace;">EN GESTIÓN DE PROYECTOS</p>
+      </div>
+
+      <div class="reveal reveal-delay-2" style="padding:48px 40px;background:#131315;text-align:center;">
+        <div class="font-clash" style="font-size:72px;font-weight:200;line-height:1;margin-bottom:12px;">
+          <span id="counter-2" style="color:var(--green);" data-target="94">0</span><span style="font-size:36px;color:rgba(229,225,228,0.3);">%</span>
+        </div>
+        <p style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:0.15em;color:rgba(229,225,228,0.4);margin-bottom:8px;">Accuracy</p>
+        <p style="font-size:13px;color:rgba(229,225,228,0.3);font-family:monospace;">EN EXTRACCIÓN DE TAREAS</p>
+      </div>
+
+      <div class="reveal reveal-delay-3" style="padding:48px 40px;background:#131315;text-align:center;">
+        <div class="font-clash" style="font-size:72px;font-weight:200;line-height:1;margin-bottom:12px;">
+          <span style="color:var(--cyan);">3</span><span style="font-size:36px;color:rgba(229,225,228,0.3);">m</span>
+        </div>
+        <p style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:0.15em;color:rgba(229,225,228,0.4);margin-bottom:8px;">ROI Cycle</p>
+        <p style="font-size:13px;color:rgba(229,225,228,0.3);font-family:monospace;">RETORNO PROMEDIO</p>
+      </div>
+
+      <div class="reveal reveal-delay-4" style="padding:48px 40px;background:#131315;text-align:center;">
+        <div class="font-clash" style="font-size:72px;font-weight:200;line-height:1;margin-bottom:12px;">
+          <span id="counter-4" style="color:var(--green);" data-target="500">0</span><span style="font-size:36px;color:rgba(229,225,228,0.3);">+</span>
+        </div>
+        <p style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:0.15em;color:rgba(229,225,228,0.4);margin-bottom:8px;">Empresas</p>
+        <p style="font-size:13px;color:rgba(229,225,228,0.3);font-family:monospace;">CONFÍAN EN CONAUTI</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── TESTIMONIOS ── -->
+<section id="testimonials" style="padding:120px 32px;position:relative;overflow:hidden;">
+  <div style="max-width:1280px;margin:0 auto;">
+    <div class="reveal" style="margin-bottom:72px;">
+      <p style="font-size:11px;font-weight:700;letter-spacing:0.2em;color:var(--cyan);text-transform:uppercase;margin-bottom:12px;">El Testimonio</p>
+      <h2 class="font-clash" style="font-size:clamp(32px,5vw,60px);line-height:1.0;">
+        <span style="display:block;font-weight:200;color:rgba(229,225,228,0.6);">Lo que dicen los</span>
+        <span class="gradient-text" style="display:block;font-weight:800;">Arquitectos del Futuro</span>
+      </h2>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px;">
+
+      <div class="reveal reveal-delay-1 glass testi-card" style="padding:40px;border-radius:24px;display:flex;flex-direction:column;justify-content:space-between;">
+        <div>
+          <div style="display:flex;gap:2px;margin-bottom:20px;">
+            <span style="color:#f59e0b;font-size:16px;">★★★★★</span>
+          </div>
+          <p style="font-size:16px;line-height:1.7;color:rgba(229,225,228,0.75);font-weight:300;font-style:italic;margin-bottom:28px;">
+            "Conauti Whats eliminó el 90% de las reuniones de seguimiento. Ahora el equipo simplemente coordina por WhatsApp y el dashboard se actualiza solo."
+          </p>
+        </div>
+        <div style="display:flex;align-items:center;gap:14px;padding-top:20px;border-top:1px solid rgba(255,255,255,0.05);">
+          <div style="width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,#667eea,#764ba2);display:flex;align-items:center;justify-content:center;font-weight:700;color:white;font-size:16px;border:2px solid rgba(0,240,255,0.2);">E</div>
+          <div>
+            <p style="font-weight:700;font-size:14px;">Elena Rivas</p>
+            <p style="font-size:11px;text-transform:uppercase;letter-spacing:0.1em;color:rgba(229,225,228,0.4);">CTO · TechFlow</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="reveal reveal-delay-2 glass testi-card" style="padding:40px;border-radius:24px;border-color:rgba(0,240,255,0.15);display:flex;flex-direction:column;justify-content:space-between;background:linear-gradient(135deg,rgba(0,240,255,0.03),rgba(16,185,129,0.03));">
+        <div>
+          <div style="display:flex;gap:2px;margin-bottom:20px;">
+            <span style="color:#f59e0b;font-size:16px;">★★★★★</span>
+          </div>
+          <p style="font-size:16px;line-height:1.7;color:rgba(229,225,228,0.75);font-weight:300;font-style:italic;margin-bottom:28px;">
+            "La precisión de la IA para extraer tareas de hilos de conversación complejos es asombrosa. Es como tener un PM que nunca duerme."
+          </p>
+        </div>
+        <div style="display:flex;align-items:center;gap:14px;padding-top:20px;border-top:1px solid rgba(255,255,255,0.05);">
+          <div style="width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,#f093fb,#f5576c);display:flex;align-items:center;justify-content:center;font-weight:700;color:white;font-size:16px;border:2px solid rgba(0,240,255,0.2);">M</div>
+          <div>
+            <p style="font-weight:700;font-size:14px;">Marco Valery</p>
+            <p style="font-size:11px;text-transform:uppercase;letter-spacing:0.1em;color:rgba(229,225,228,0.4);">Product Manager</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="reveal reveal-delay-3 glass testi-card" style="padding:40px;border-radius:24px;display:flex;flex-direction:column;justify-content:space-between;">
+        <div>
+          <div style="display:flex;gap:2px;margin-bottom:20px;">
+            <span style="color:#f59e0b;font-size:16px;">★★★★★</span>
+          </div>
+          <p style="font-size:16px;line-height:1.7;color:rgba(229,225,228,0.75);font-weight:300;font-style:italic;margin-bottom:28px;">
+            "Implementamos Conauti Whats en menos de 5 minutos. No tuvimos que entrenar a nadie; siguen usando WhatsApp igual, pero con orden total."
+          </p>
+        </div>
+        <div style="display:flex;align-items:center;gap:14px;padding-top:20px;border-top:1px solid rgba(255,255,255,0.05);">
+          <div style="width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,#43e97b,#38f9d7);display:flex;align-items:center;justify-content:center;font-weight:700;color:#131315;font-size:16px;border:2px solid rgba(16,185,129,0.3);">S</div>
+          <div>
+            <p style="font-weight:700;font-size:14px;">Sofia Chen</p>
+            <p style="font-size:11px;text-transform:uppercase;letter-spacing:0.1em;color:rgba(229,225,228,0.4);">COO · Nexus Agency</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── PRECIOS ── -->
+<section id="pricing" style="padding:120px 32px;background:#0e0e10;position:relative;overflow:hidden;">
+  <div style="position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(16,185,129,0.3),transparent);"></div>
+  <div style="max-width:1280px;margin:0 auto;">
+    <div class="reveal" style="text-align:center;margin-bottom:72px;">
+      <p style="font-size:11px;font-weight:700;letter-spacing:0.2em;color:var(--cyan);text-transform:uppercase;margin-bottom:12px;">Precio y Formas de Pago</p>
+      <h2 class="font-clash" style="font-size:clamp(32px,5vw,52px);font-weight:800;margin-bottom:12px;">Planes para Equipos de Alto Rendimiento</h2>
+      <p style="color:rgba(229,225,228,0.4);font-size:16px;">Stripe, PayPal y Cripto. Sin sorpresas.</p>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;align-items:stretch;">
+
+      <!-- Starter -->
+      <div class="reveal reveal-delay-1 glass price-card" style="padding:40px;border-radius:24px;display:flex;flex-direction:column;">
+        <div style="margin-bottom:32px;">
+          <p style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:0.15em;color:rgba(229,225,228,0.4);margin-bottom:8px;">Starter</p>
+          <div style="display:flex;align-items:baseline;gap:4px;">
+            <span class="font-clash" style="font-size:48px;font-weight:700;">$49</span>
+            <span style="color:rgba(229,225,228,0.35);font-size:14px;">/mes</span>
+          </div>
+        </div>
+        <ul style="list-style:none;margin-bottom:32px;flex:1;display:flex;flex-direction:column;gap:14px;">
+          <li style="display:flex;align-items:center;gap:10px;font-size:14px;"><span class="material-symbols-outlined" style="color:var(--green);font-size:18px;">check_circle</span> 3 Grupos de WhatsApp</li>
+          <li style="display:flex;align-items:center;gap:10px;font-size:14px;"><span class="material-symbols-outlined" style="color:var(--green);font-size:18px;">check_circle</span> Reportes semanales</li>
+          <li style="display:flex;align-items:center;gap:10px;font-size:14px;"><span class="material-symbols-outlined" style="color:var(--green);font-size:18px;">check_circle</span> Procesamiento básico</li>
+          <li style="display:flex;align-items:center;gap:10px;font-size:14px;color:rgba(229,225,228,0.3);"><span class="material-symbols-outlined" style="font-size:18px;">remove</span> Dashboard en tiempo real</li>
+          <li style="display:flex;align-items:center;gap:10px;font-size:14px;color:rgba(229,225,228,0.3);"><span class="material-symbols-outlined" style="font-size:18px;">remove</span> Soporte prioritario</li>
+        </ul>
+        <button class="btn-ghost" style="width:100%;padding:14px;font-size:15px;">Elegir Starter</button>
+      </div>
+
+      <!-- Pro -->
+      <div class="reveal reveal-delay-2 popular-card price-card" style="padding:44px;border-radius:28px;display:flex;flex-direction:column;position:relative;transform:scale(1.03);">
+        <div style="position:absolute;top:-1px;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,var(--cyan),var(--green));color:#131315;font-size:10px;font-weight:800;padding:4px 16px;border-radius:0 0 10px 10px;letter-spacing:0.15em;">MÁS POPULAR</div>
+        <div style="margin-bottom:32px;">
+          <p style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:0.15em;color:var(--cyan);margin-bottom:8px;">Pro</p>
+          <div style="display:flex;align-items:baseline;gap:4px;">
+            <span class="font-clash" style="font-size:60px;font-weight:700;color:#fff;">$149</span>
+            <span style="color:rgba(229,225,228,0.35);font-size:16px;">/mes</span>
+          </div>
+          <p style="font-size:12px;color:rgba(229,225,228,0.35);margin-top:4px;">Facturado mensualmente</p>
+        </div>
+        <ul style="list-style:none;margin-bottom:36px;flex:1;display:flex;flex-direction:column;gap:16px;">
+          <li style="display:flex;align-items:center;gap:10px;font-size:15px;"><span class="material-symbols-outlined" style="color:var(--cyan);font-size:20px;">check_circle</span> Grupos Ilimitados</li>
+          <li style="display:flex;align-items:center;gap:10px;font-size:15px;"><span class="material-symbols-outlined" style="color:var(--cyan);font-size:20px;">check_circle</span> Dashboard en Tiempo Real</li>
+          <li style="display:flex;align-items:center;gap:10px;font-size:15px;"><span class="material-symbols-outlined" style="color:var(--cyan);font-size:20px;">check_circle</span> Integración Google Calendar</li>
+          <li style="display:flex;align-items:center;gap:10px;font-size:15px;"><span class="material-symbols-outlined" style="color:var(--cyan);font-size:20px;">check_circle</span> Soporte Prioritario 24/7</li>
+          <li style="display:flex;align-items:center;gap:10px;font-size:15px;"><span class="material-symbols-outlined" style="color:var(--cyan);font-size:20px;">check_circle</span> Reportes avanzados con IA</li>
+        </ul>
+        <button class="btn-primary" style="width:100%;padding:18px;font-size:16px;">Obtener Pro →</button>
+      </div>
+
+      <!-- Enterprise -->
+      <div class="reveal reveal-delay-3 glass price-card" style="padding:40px;border-radius:24px;display:flex;flex-direction:column;">
+        <div style="margin-bottom:32px;">
+          <p style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:0.15em;color:rgba(229,225,228,0.4);margin-bottom:8px;">Enterprise</p>
+          <div class="font-clash" style="font-size:36px;font-weight:700;">Personalizado</div>
+          <p style="font-size:13px;color:rgba(229,225,228,0.35);margin-top:8px;">Cotiza con ventas</p>
+        </div>
+        <ul style="list-style:none;margin-bottom:32px;flex:1;display:flex;flex-direction:column;gap:14px;">
+          <li style="display:flex;align-items:center;gap:10px;font-size:14px;"><span class="material-symbols-outlined" style="color:var(--green);font-size:18px;">check_circle</span> Multi-tenancy</li>
+          <li style="display:flex;align-items:center;gap:10px;font-size:14px;"><span class="material-symbols-outlined" style="color:var(--green);font-size:18px;">check_circle</span> Seguridad de Grado Bancario</li>
+          <li style="display:flex;align-items:center;gap:10px;font-size:14px;"><span class="material-symbols-outlined" style="color:var(--green);font-size:18px;">check_circle</span> Agentes IA a Medida</li>
+          <li style="display:flex;align-items:center;gap:10px;font-size:14px;"><span class="material-symbols-outlined" style="color:var(--green);font-size:18px;">check_circle</span> SLA garantizado</li>
+          <li style="display:flex;align-items:center;gap:10px;font-size:14px;"><span class="material-symbols-outlined" style="color:var(--green);font-size:18px;">check_circle</span> Onboarding dedicado</li>
+        </ul>
+        <button class="btn-ghost" style="width:100%;padding:14px;font-size:15px;">Contactar Ventas</button>
+      </div>
+    </div>
+
+    <!-- Payment icons -->
+    <div class="reveal" style="display:flex;justify-content:center;align-items:center;gap:24px;margin-top:48px;flex-wrap:wrap;">
+      <p style="font-size:12px;color:rgba(229,225,228,0.3);text-transform:uppercase;letter-spacing:0.1em;">Pagos seguros via</p>
+      <div style="display:flex;gap:16px;align-items:center;">
+        <div style="padding:6px 14px;border:1px solid rgba(255,255,255,0.08);border-radius:8px;font-size:13px;color:rgba(229,225,228,0.4);font-weight:700;">Stripe</div>
+        <div style="padding:6px 14px;border:1px solid rgba(255,255,255,0.08);border-radius:8px;font-size:13px;color:rgba(229,225,228,0.4);font-weight:700;">PayPal</div>
+        <div style="padding:6px 14px;border:1px solid rgba(255,255,255,0.08);border-radius:8px;font-size:13px;color:rgba(229,225,228,0.4);font-weight:700;">Crypto</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── GARANTÍAS ── -->
+<section id="guarantees" style="padding:100px 32px;position:relative;">
+  <div style="max-width:1280px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px;">
+    <div class="reveal reveal-delay-1 glass" style="padding:40px;border-radius:24px;display:flex;gap:20px;align-items:flex-start;transition:all 0.4s;border-color:rgba(16,185,129,0.1);">
+      <div style="min-width:52px;height:52px;border-radius:50%;background:rgba(16,185,129,0.1);border:1px solid rgba(16,185,129,0.2);display:flex;align-items:center;justify-content:center;">
+        <span class="material-symbols-outlined" style="color:var(--green);font-size:26px;">verified_user</span>
+      </div>
+      <div>
+        <h4 class="font-clash" style="font-size:22px;font-weight:700;margin-bottom:10px;">Garantía de Devolución</h4>
+        <p style="color:rgba(229,225,228,0.5);line-height:1.6;font-size:15px;">Si no ves resultados en los primeros 30 días, te devolvemos el 100% de tu dinero sin preguntas.</p>
+      </div>
+    </div>
+    <div class="reveal reveal-delay-2 glass" style="padding:40px;border-radius:24px;display:flex;gap:20px;align-items:flex-start;border-color:rgba(0,240,255,0.1);">
+      <div style="min-width:52px;height:52px;border-radius:50%;background:rgba(0,240,255,0.08);border:1px solid rgba(0,240,255,0.15);display:flex;align-items:center;justify-content:center;">
+        <span class="material-symbols-outlined" style="color:var(--cyan);font-size:26px;">security</span>
+      </div>
+      <div>
+        <h4 class="font-clash" style="font-size:22px;font-weight:700;margin-bottom:10px;">Seguridad Enterprise</h4>
+        <p style="color:rgba(229,225,228,0.5);line-height:1.6;font-size:15px;">Encriptación de punto a punto y protocolos de seguridad de grado bancario para todos tus datos.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FAQ ── -->
+<section id="faq" style="padding:100px 32px;background:#0e0e10;">
+  <div style="max-width:720px;margin:0 auto;">
+    <div class="reveal" style="text-align:center;margin-bottom:64px;">
+      <p style="font-size:11px;font-weight:700;letter-spacing:0.2em;color:var(--cyan);text-transform:uppercase;margin-bottom:12px;">Resolución de Preguntas</p>
+      <h2 class="font-clash" style="font-size:clamp(32px,5vw,48px);font-weight:800;">Preguntas Frecuentes</h2>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:12px;">
+
+      <details class="reveal glass" style="border-radius:16px;overflow:hidden;" open>
+        <summary style="display:flex;justify-content:space-between;align-items:center;padding:24px 28px;cursor:none;list-style:none;">
+          <span class="font-clash" style="font-size:18px;font-weight:700;">¿Es necesario instalar alguna aplicación adicional?</span>
+          <span class="material-symbols-outlined chevron" style="color:var(--cyan);">expand_more</span>
+        </summary>
+        <div class="faq-body">
+          <p style="padding:0 28px 24px;color:rgba(229,225,228,0.55);line-height:1.7;font-size:15px;">No. Conauti Whats opera directamente sobre tus grupos de WhatsApp. Solo agregas al agente como a un contacto más y comenzará a organizar todo de inmediato.</p>
+        </div>
+      </details>
+
+      <details class="reveal reveal-delay-1 glass" style="border-radius:16px;overflow:hidden;">
+        <summary style="display:flex;justify-content:space-between;align-items:center;padding:24px 28px;cursor:none;list-style:none;">
+          <span class="font-clash" style="font-size:18px;font-weight:700;">¿Cómo manejan la privacidad de mis chats?</span>
+          <span class="material-symbols-outlined chevron" style="color:var(--cyan);">expand_more</span>
+        </summary>
+        <div class="faq-body">
+          <p style="padding:0 28px 24px;color:rgba(229,225,228,0.55);line-height:1.7;font-size:15px;">Tus datos están protegidos. El agente solo procesa mensajes de trabajo y filtra el "ruido", operando bajo estrictos estándares de ética corporativa y seguridad.</p>
+        </div>
+      </details>
+
+      <details class="reveal reveal-delay-2 glass" style="border-radius:16px;overflow:hidden;">
+        <summary style="display:flex;justify-content:space-between;align-items:center;padding:24px 28px;cursor:none;list-style:none;">
+          <span class="font-clash" style="font-size:18px;font-weight:700;">¿Se integra con Slack, Trello o Jira?</span>
+          <span class="material-symbols-outlined chevron" style="color:var(--cyan);">expand_more</span>
+        </summary>
+        <div class="faq-body">
+          <p style="padding:0 28px 24px;color:rgba(229,225,228,0.55);line-height:1.7;font-size:15px;">Por ahora ofrecemos Dashboard Web propio en tiempo real y conexión nativa con Google Calendar. Las demás integraciones llegarán en futuras actualizaciones.</p>
+        </div>
+      </details>
+
+      <details class="reveal reveal-delay-3 glass" style="border-radius:16px;overflow:hidden;">
+        <summary style="display:flex;justify-content:space-between;align-items:center;padding:24px 28px;cursor:none;list-style:none;">
+          <span class="font-clash" style="font-size:18px;font-weight:700;">¿Cómo sabe la IA qué es una tarea y qué es charla?</span>
+          <span class="material-symbols-outlined chevron" style="color:var(--cyan);">expand_more</span>
+        </summary>
+        <div class="faq-body">
+          <p style="padding:0 28px 24px;color:rgba(229,225,228,0.55);line-height:1.7;font-size:15px;">Usamos IA avanzada que comprende el contexto. El sistema ignora saludos o bromas y extrae automáticamente solo las tareas, responsables y plazos.</p>
+        </div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ── CTA FINAL ── -->
+<section style="padding:120px 32px;position:relative;overflow:hidden;">
+  <div style="position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 50%,rgba(0,240,255,0.06),transparent);pointer-events:none;"></div>
+  <div style="position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(0,240,255,0.3),transparent);"></div>
+  <div style="max-width:760px;margin:0 auto;text-align:center;position:relative;z-index:1;">
+    <div class="reveal">
+      <p style="font-size:11px;font-weight:700;letter-spacing:0.2em;color:var(--green);text-transform:uppercase;margin-bottom:20px;">¿Listo para empezar?</p>
+      <h2 class="font-clash" style="font-size:clamp(36px,6vw,72px);font-weight:800;line-height:1.0;margin-bottom:24px;">No dejes que las decisiones<br>se pierdan.</h2>
+      <p style="color:rgba(229,225,228,0.45);font-size:18px;font-weight:300;margin-bottom:48px;">Únete a más de <strong style="color:rgba(229,225,228,0.8);">500 empresas</strong> que han transformado su comunicación interna.</p>
+      <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
+        <button class="btn-primary" style="padding:18px 48px;font-size:17px;">Empezar Ahora — Gratis</button>
+        <button class="btn-ghost" style="padding:18px 32px;font-size:17px;">Hablar con Ventas</button>
+      </div>
+      <p style="font-size:13px;color:rgba(229,225,228,0.3);margin-top:20px;">Sin tarjeta de crédito · 14 días gratis · Cancela cuando quieras</p>
+    </div>
+  </div>
+</section>
+
+
+
+{% endblock %}

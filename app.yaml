@@ -1,0 +1,17 @@
+runtime: python39
+entrypoint: gunicorn -b :$PORT config.wsgi:application
+
+env: standard
+instances: 1
+
+env_variables:
+  DJANGO_SETTINGS_MODULE: "config.settings.production"
+  DJANGO_ENV: "production"
+
+automatic_scaling:
+  min_instances: 1
+  max_instances: 5
+
+error_handlers:
+- error_code: default
+  static_files: staticfiles/404.html
