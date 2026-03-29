@@ -33,7 +33,6 @@ db.sqlite3
 db.sqlite3-journal
 /media
 /staticfiles
-/static
 
 # Environment variables
 .env
@@ -61,11 +60,6 @@ google-credentials.json
 .LSOverride
 Thumbs.db
 
-# Testing
-.coverage
-.pytest_cache/
-htmlcov/
-
 # Node modules (if using frontend build tools)
 node_modules/
 npm-debug.log
@@ -74,5 +68,3 @@ yarn-error.log
 # Temporary files
 *.tmp
 *.bak
-*.swp
-~*

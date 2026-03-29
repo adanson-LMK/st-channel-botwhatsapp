@@ -3,20 +3,16 @@
 
 {% block title %}Flowchat - Automatiza tus proyectos sin salir de WhatsApp{% endblock %}
 
-{% block extra_css %}
-<link rel="stylesheet" href="{% static 'landing/css/landing.css' %}">
-{% endblock %}
-
 {% block content %}
 
 <!-- ── HERO ── -->
-<section id="hero" style="position:relative;padding:160px 32px 120px;overflow:hidden;min-height:100vh;display:flex;align-items:center;">
+<section id="hero" class="section-padding" style="position:relative;overflow:hidden;min-height:100vh;display:flex;align-items:center;">
   <div class="mesh-bg"></div>
 
   <!-- Decorative grid lines -->
   <div style="position:absolute;inset:0;pointer-events:none;opacity:0.03;background-image:linear-gradient(rgba(0,240,255,1) 1px, transparent 1px),linear-gradient(90deg, rgba(0,240,255,1) 1px, transparent 1px);background-size:60px 60px;"></div>
 
-  <div id="hero-grid" style="width:100%;max-width:1280px;margin:0 auto;display:grid;grid-template-columns:1fr;gap:60px;align-items:center;position:relative;z-index:1;">
+  <div id="hero-grid" class="hero-layout" style="width:100%;max-width:1280px;margin:0 auto;display:grid;gap:60px;align-items:center;position:relative;z-index:1;">
 
     <div id="hero-text" style="min-width:0;">
       <!-- Badge -->
@@ -26,10 +22,10 @@
       </div>
 
       <!-- Headline -->
-      <h1 class="font-clash" style="line-height:0.88;letter-spacing:-2px;margin-bottom:28px;">
-        <span class="hero-line-1" style="display:block;font-size:clamp(52px,8vw,96px);font-weight:800;color:#fff;">Automatiza</span>
-        <span class="hero-line-2" style="display:block;font-size:clamp(44px,7vw,82px);font-weight:200;color:rgba(0,240,255,0.75);">tus proyectos</span>
-        <span class="hero-line-3" style="display:block;font-size:clamp(42px,7vw,82px);font-weight:800;color:#fff;">sin salir de<br><span class="gradient-text">WhatsApp.</span></span>
+      <h1 class="font-clash hero-title" style="line-height:0.88;letter-spacing:-2px;margin-bottom:28px;">
+        <span class="hero-line-1" style="display:block;font-size:clamp(40px,8vw,96px);font-weight:800;color:#fff;">Automatiza</span>
+        <span class="hero-line-2" style="display:block;font-size:clamp(34px,7vw,82px);font-weight:200;color:rgba(0,240,255,0.75);">tus proyectos</span>
+        <span class="hero-line-3" style="display:block;font-size:clamp(32px,7vw,82px);font-weight:800;color:#fff;">sin salir de<br><span class="gradient-text">WhatsApp.</span></span>
       </h1>
 
       <p class="hero-sub" style="font-size:clamp(16px,2vw,20px);color:rgba(229,225,228,0.55);line-height:1.7;font-weight:300;max-width:540px;margin-bottom:40px;">
@@ -48,7 +44,7 @@
       </div>
 
       <!-- Social proof -->
-      <div class="hero-btns" style="margin-top:48px;display:flex;align-items:center;gap:20px;flex-wrap:wrap;">
+      <div class="hero-btns social-proof-container" style="margin-top:48px;display:flex;align-items:center;gap:20px;flex-wrap:wrap;">
         <div style="display:flex;">
           <div style="width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,#667eea,#764ba2);border:2px solid #131315;margin-right:-10px;"></div>
           <div style="width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,#f093fb,#f5576c);border:2px solid #131315;margin-right:-10px;"></div>
@@ -66,8 +62,8 @@
     </div>
 
     <!-- Hero Visual: WhatsApp Chat Mockup -->
-    <div id="hero-chat" style="display:flex;justify-content:center;align-items:center;">
-      <div class="float-card glass" style="border-radius:24px;width:340px;overflow:hidden;box-shadow:0 40px 80px rgba(0,0,0,0.5),0 0 40px rgba(0,240,255,0.1);">
+    <div id="hero-chat" class="hero-chat-container" style="display:flex;justify-content:center;align-items:center;">
+      <div class="float-card glass" style="border-radius:24px;width:100%;max-width:340px;overflow:hidden;box-shadow:0 40px 80px rgba(0,0,0,0.5),0 0 40px rgba(0,240,255,0.1);">
         <!-- WA Header -->
         <div style="background:#1a2f20;padding:16px 20px;display:flex;align-items:center;gap:12px;border-bottom:1px solid rgba(255,255,255,0.06);">
           <div style="width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,var(--cyan),var(--green));display:flex;align-items:center;justify-content:center;">
@@ -75,7 +71,7 @@
           </div>
           <div>
             <p style="font-weight:700;font-size:14px;color:#fff;">@Flowchat</p>
-            <p style="font-size:11px;color:#25d366;">● online · procesando</p>
+            <p id="flowchat-status" style="font-size:11px;color:#25d366;">● online · procesando</p>
           </div>
           <span class="material-symbols-outlined" style="margin-left:auto;color:rgba(255,255,255,0.3);font-size:20px;">more_vert</span>
         </div>
@@ -99,20 +95,20 @@
 </section>
 
 <!-- ── PROBLEMA ── -->
-<section id="problem" style="padding:120px 32px;background:#0e0e10;position:relative;overflow:hidden;">
+<section id="problem" class="section-padding" style="background:#0e0e10;position:relative;overflow:hidden;">
   <div style="position:absolute;top:-100px;right:-100px;width:400px;height:400px;background:radial-gradient(circle,rgba(239,68,68,0.06),transparent 70%);pointer-events:none;"></div>
   <div style="max-width:1280px;margin:0 auto;">
     <div class="reveal" style="display:flex;flex-direction:column;gap:12px;margin-bottom:80px;border-bottom:1px solid rgba(255,255,255,0.05);padding-bottom:40px;">
       <div style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:20px;">
         <div>
           <p style="font-size:11px;font-weight:700;letter-spacing:0.2em;color:var(--cyan);text-transform:uppercase;margin-bottom:12px;">El Problema</p>
-          <h2 class="font-clash" style="font-size:clamp(36px,5vw,60px);font-weight:700;line-height:1.1;max-width:500px;">El caos invisible de<br>coordinar por chat.</h2>
+          <h2 class="font-clash section-title" style="font-size:clamp(36px,5vw,60px);font-weight:700;line-height:1.1;max-width:500px;">El caos invisible de<br>coordinar por chat.</h2>
         </div>
-        <div class="font-clash" style="font-size:96px;font-weight:200;opacity:0.08;color:var(--cyan);line-height:1;">01</div>
+        <div class="font-clash section-number" style="font-size:96px;font-weight:200;opacity:0.08;color:var(--cyan);line-height:1;">01</div>
       </div>
     </div>
 
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;">
+    <div class="problem-grid" style="display:grid;gap:24px;">
 
       <div class="reveal reveal-delay-1 glass stat-card" style="padding:40px;border-radius:20px;">
         <div style="width:56px;height:56px;border-radius:16px;background:rgba(239,68,68,0.1);border:1px solid rgba(239,68,68,0.2);display:flex;align-items:center;justify-content:center;margin-bottom:24px;">
@@ -145,16 +141,16 @@
 </section>
 
 <!-- ── CÓMO FUNCIONA ── -->
-<section id="how" style="padding:120px 32px;position:relative;overflow:hidden;">
+<section id="how" class="section-padding" style="position:relative;overflow:hidden;">
   <div style="position:absolute;inset:0;background:radial-gradient(ellipse 70% 50% at 50% 50%,rgba(0,240,255,0.03),transparent);pointer-events:none;"></div>
   <div style="max-width:1280px;margin:0 auto;position:relative;z-index:1;">
     <div class="reveal" style="text-align:center;margin-bottom:80px;">
       <p style="font-size:11px;font-weight:700;letter-spacing:0.2em;color:var(--cyan);text-transform:uppercase;margin-bottom:12px;">El Programa</p>
-      <h2 class="font-clash" style="font-size:clamp(36px,5vw,56px);font-weight:800;margin-bottom:16px;">Flujo de Ejecución Minimalista</h2>
+      <h2 class="font-clash section-title" style="font-size:clamp(32px,5vw,56px);font-weight:800;margin-bottom:16px;">Flujo de Ejecución Minimalista</h2>
       <p style="color:rgba(229,225,228,0.45);font-size:18px;font-weight:300;">De la conversación a la acción en tres simples pasos.</p>
     </div>
 
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:0;position:relative;">
+    <div class="how-grid" style="display:grid;gap:24px;position:relative;">
 
       
       <div class="reveal reveal-delay-1" style="text-align:center;padding:32px 40px 40px;">
@@ -197,41 +193,41 @@
 </section>
 
 <!-- ── BENEFICIOS / MÉTRICAS ── -->
-<section id="roi" style="padding:120px 32px;background:#0e0e10;position:relative;overflow:hidden;">
+<section id="roi" class="section-padding" style="background:#0e0e10;position:relative;overflow:hidden;">
   <div style="position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(0,240,255,0.3),transparent);"></div>
   <div style="max-width:1280px;margin:0 auto;">
     <div class="reveal" style="text-align:center;margin-bottom:80px;">
       <p style="font-size:11px;font-weight:700;letter-spacing:0.2em;color:var(--cyan);text-transform:uppercase;margin-bottom:12px;">Los Beneficios</p>
-      <h2 class="font-clash" style="font-size:clamp(36px,5vw,56px);font-weight:800;">Métricas Reales</h2>
+      <h2 class="font-clash section-title" style="font-size:clamp(36px,5vw,56px);font-weight:800;">Métricas Reales</h2>
     </div>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:2px;background:rgba(255,255,255,0.04);border-radius:24px;overflow:hidden;border:1px solid rgba(255,255,255,0.06);">
+    <div class="metrics-grid" style="display:grid;gap:2px;background:rgba(255,255,255,0.04);border-radius:24px;overflow:hidden;border:1px solid rgba(255,255,255,0.06);">
 
-      <div class="reveal reveal-delay-1" style="padding:48px 40px;background:#131315;text-align:center;">
-        <div class="font-clash" style="font-size:72px;font-weight:200;line-height:1;margin-bottom:12px;">
+      <div class="reveal reveal-delay-1 metric-card" style="padding:48px 24px;background:#131315;text-align:center;">
+        <div class="font-clash metric-value" style="font-size:72px;font-weight:200;line-height:1;margin-bottom:12px;">
           <span id="counter-1" style="color:var(--cyan);" data-target="87">0</span><span style="font-size:36px;color:rgba(229,225,228,0.3);">%</span>
         </div>
         <p style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:0.15em;color:rgba(229,225,228,0.4);margin-bottom:8px;">Time Saved</p>
         <p style="font-size:13px;color:rgba(229,225,228,0.3);font-family:monospace;">EN GESTIÓN DE PROYECTOS</p>
       </div>
 
-      <div class="reveal reveal-delay-2" style="padding:48px 40px;background:#131315;text-align:center;">
-        <div class="font-clash" style="font-size:72px;font-weight:200;line-height:1;margin-bottom:12px;">
+      <div class="reveal reveal-delay-2 metric-card" style="padding:48px 24px;background:#131315;text-align:center;">
+        <div class="font-clash metric-value" style="font-size:72px;font-weight:200;line-height:1;margin-bottom:12px;">
           <span id="counter-2" style="color:var(--green);" data-target="94">0</span><span style="font-size:36px;color:rgba(229,225,228,0.3);">%</span>
         </div>
         <p style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:0.15em;color:rgba(229,225,228,0.4);margin-bottom:8px;">Accuracy</p>
         <p style="font-size:13px;color:rgba(229,225,228,0.3);font-family:monospace;">EN EXTRACCIÓN DE TAREAS</p>
       </div>
 
-      <div class="reveal reveal-delay-3" style="padding:48px 40px;background:#131315;text-align:center;">
-        <div class="font-clash" style="font-size:72px;font-weight:200;line-height:1;margin-bottom:12px;">
-          <span id="counter-3" style="color:var(--cyan);" data-target="3" data-suffix="m">0</span><span style="font-size:36px;color:rgba(229,225,228,0.3);">m</span>
+      <div class="reveal reveal-delay-3 metric-card" style="padding:48px 24px;background:#131315;text-align:center;">
+        <div class="font-clash metric-value" style="font-size:72px;font-weight:200;line-height:1;margin-bottom:12px;">
+          <span id="counter-3" style="color:var(--cyan);" data-target="3" data-suffix="m">0</span>
         </div>
         <p style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:0.15em;color:rgba(229,225,228,0.4);margin-bottom:8px;">ROI Cycle</p>
         <p style="font-size:13px;color:rgba(229,225,228,0.3);font-family:monospace;">RETORNO PROMEDIO</p>
       </div>
 
-      <div class="reveal reveal-delay-4" style="padding:48px 40px;background:#131315;text-align:center;">
-        <div class="font-clash" style="font-size:72px;font-weight:200;line-height:1;margin-bottom:12px;">
+      <div class="reveal reveal-delay-4 metric-card" style="padding:48px 24px;background:#131315;text-align:center;">
+        <div class="font-clash metric-value" style="font-size:72px;font-weight:200;line-height:1;margin-bottom:12px;">
           <span id="counter-4" style="color:var(--green);" data-target="500">0</span><span style="font-size:36px;color:rgba(229,225,228,0.3);">+</span>
         </div>
         <p style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:0.15em;color:rgba(229,225,228,0.4);margin-bottom:8px;">Empresas</p>
@@ -242,16 +238,16 @@
 </section>
 
 <!-- ── TESTIMONIOS ── -->
-<section id="testimonials" style="padding:120px 32px;position:relative;overflow:hidden;">
+<section id="testimonials" class="section-padding" style="position:relative;overflow:hidden;">
   <div style="max-width:1280px;margin:0 auto;">
     <div class="reveal" style="margin-bottom:72px;">
       <p style="font-size:11px;font-weight:700;letter-spacing:0.2em;color:var(--cyan);text-transform:uppercase;margin-bottom:12px;">El Testimonio</p>
-      <h2 class="font-clash" style="font-size:clamp(32px,5vw,60px);line-height:1.0;">
+      <h2 class="font-clash section-title" style="font-size:clamp(32px,5vw,60px);line-height:1.0;">
         <span style="display:block;font-weight:200;color:rgba(229,225,228,0.6);">Lo que dicen los</span>
         <span class="gradient-text" style="display:block;font-weight:800;">Arquitectos del Futuro</span>
       </h2>
     </div>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px;">
+    <div class="testi-grid" style="display:grid;gap:24px;">
 
       <div class="reveal reveal-delay-1 glass testi-card" style="padding:40px;border-radius:24px;display:flex;flex-direction:column;justify-content:space-between;">
         <div>
@@ -311,16 +307,16 @@
 </section>
 
 <!-- ── PRECIOS ── -->
-<section id="pricing" style="padding:120px 32px;background:#0e0e10;position:relative;overflow:hidden;">
+<section id="pricing" class="section-padding" style="background:#0e0e10;position:relative;overflow:hidden;">
   <div style="position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(16,185,129,0.3),transparent);"></div>
   <div style="max-width:1280px;margin:0 auto;">
     <div class="reveal" style="text-align:center;margin-bottom:72px;">
       <p style="font-size:11px;font-weight:700;letter-spacing:0.2em;color:var(--cyan);text-transform:uppercase;margin-bottom:12px;">Precio y Formas de Pago</p>
-      <h2 class="font-clash" style="font-size:clamp(32px,5vw,52px);font-weight:800;margin-bottom:12px;">Planes para Equipos de Alto Rendimiento</h2>
+      <h2 class="font-clash section-title" style="font-size:clamp(32px,5vw,52px);font-weight:800;margin-bottom:12px;">Planes para Equipos de Alto Rendimiento</h2>
       <p style="color:rgba(229,225,228,0.4);font-size:16px;">Stripe, PayPal y Cripto. Sin sorpresas.</p>
     </div>
 
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;align-items:stretch;">
+    <div class="pricing-grid" style="display:grid;gap:20px;align-items:stretch;">
 
       <!-- Starter -->
       <div class="reveal reveal-delay-1 glass price-card" style="padding:40px;border-radius:24px;display:flex;flex-direction:column;">
@@ -393,8 +389,8 @@
 </section>
 
 <!-- ── GARANTÍAS ── -->
-<section id="guarantees" style="padding:100px 32px;position:relative;">
-  <div style="max-width:1280px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px;">
+<section id="guarantees" class="section-padding" style="position:relative;">
+  <div style="max-width:1280px;margin:0 auto;display:grid;gap:24px;" class="guarantees-grid">
     <div class="reveal reveal-delay-1 glass" style="padding:40px;border-radius:24px;display:flex;gap:20px;align-items:flex-start;transition:all 0.4s;border-color:rgba(16,185,129,0.1);">
       <div style="min-width:52px;height:52px;border-radius:50%;background:rgba(16,185,129,0.1);border:1px solid rgba(16,185,129,0.2);display:flex;align-items:center;justify-content:center;">
         <span class="material-symbols-outlined" style="color:var(--green);font-size:26px;">verified_user</span>
@@ -417,11 +413,11 @@
 </section>
 
 <!-- ── FAQ ── -->
-<section id="faq" style="padding:100px 32px;background:#0e0e10;">
+<section id="faq" class="section-padding" style="background:#0e0e10;">
   <div style="max-width:720px;margin:0 auto;">
     <div class="reveal" style="text-align:center;margin-bottom:64px;">
       <p style="font-size:11px;font-weight:700;letter-spacing:0.2em;color:var(--cyan);text-transform:uppercase;margin-bottom:12px;">Resolución de Preguntas</p>
-      <h2 class="font-clash" style="font-size:clamp(32px,5vw,48px);font-weight:800;">Preguntas Frecuentes</h2>
+      <h2 class="font-clash section-title" style="font-size:clamp(32px,5vw,48px);font-weight:800;">Preguntas Frecuentes</h2>
     </div>
     <div style="display:flex;flex-direction:column;gap:12px;">
 
@@ -469,13 +465,13 @@
 </section>
 
 <!-- ── CTA FINAL ── -->
-<section style="padding:120px 32px;position:relative;overflow:hidden;">
+<section class="section-padding" style="position:relative;overflow:hidden;">
   <div style="position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 50%,rgba(0,240,255,0.06),transparent);pointer-events:none;"></div>
   <div style="position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(0,240,255,0.3),transparent);"></div>
   <div style="max-width:760px;margin:0 auto;text-align:center;position:relative;z-index:1;">
     <div class="reveal">
       <p style="font-size:11px;font-weight:700;letter-spacing:0.2em;color:var(--green);text-transform:uppercase;margin-bottom:20px;">¿Listo para empezar?</p>
-      <h2 class="font-clash" style="font-size:clamp(36px,6vw,72px);font-weight:800;line-height:1.0;margin-bottom:24px;">No dejes que las decisiones<br>se pierdan.</h2>
+      <h2 class="font-clash section-title" style="font-size:clamp(32px,6vw,72px);font-weight:800;line-height:1.0;margin-bottom:24px;">No dejes que las decisiones<br>se pierdan.</h2>
       <p style="color:rgba(229,225,228,0.45);font-size:18px;font-weight:300;margin-bottom:48px;">Únete a más de <strong style="color:rgba(229,225,228,0.8);">500 empresas</strong> que han transformado su comunicación interna.</p>
       <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
         <button class="btn-primary" style="padding:18px 48px;font-size:17px;">Empezar Ahora — Gratis</button>

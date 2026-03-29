@@ -14,4 +14,5 @@ def register_view(request):
 
 def profile_view(request):
     """Profile page - Coming soon."""
-    return render(request, 'account/profile.html')
+    from django.shortcuts import redirect
+    return redirect('landing:index')

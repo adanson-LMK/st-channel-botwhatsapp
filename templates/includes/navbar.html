@@ -1,21 +1,29 @@
+<!-- Mobile Menu Overlay -->
+<div id="mobile-menu-overlay" style="position:fixed;inset:0;background:rgba(0,0,0,0.6);backdrop-filter:blur(4px);z-index:40;opacity:0;pointer-events:none;transition:opacity 0.3s;"></div>
+
 <!-- Mobile Menu -->
 <div id="mobile-menu">
+  <div style="display:flex;justify-content:flex-end;margin-bottom:24px;">
+    <button id="mobile-menu-close" style="background:none;border:none;color:white;cursor:pointer;padding:8px;">
+      <span class="material-symbols-outlined" style="font-size:32px;">close</span>
+    </button>
+  </div>
   <a class="mobile-nav-item" href="{% url 'landing:index' %}">Inicio</a>
-  <a class="mobile-nav-item" href="#problem" onclick="closeMobile()">Problema</a>
-  <a class="mobile-nav-item" href="#how" onclick="closeMobile()">Cómo Funciona</a>
-  <a class="mobile-nav-item" href="#roi" onclick="closeMobile()">Beneficios</a>
-  <a class="mobile-nav-item" href="#pricing" onclick="closeMobile()">Precios</a>
-  <a class="mobile-nav-item" href="#">Blog</a>
-  <div style="display:flex;flex-direction:column;gap:12px;margin-top:16px;">
-    <a class="btn-ghost mobile-nav-item" href="{% url 'account:login' %}" style="text-align:center;">Iniciar Sesión</a>
-    <button class="btn-primary mobile-nav-item" onclick="closeMobile()">Prueba Gratis</button>
+  <a class="mobile-nav-item js-close-mobile" href="#problem">Problema</a>
+  <a class="mobile-nav-item js-close-mobile" href="#how">Cómo Funciona</a>
+  <a class="mobile-nav-item js-close-mobile" href="#roi">Beneficios</a>
+  <a class="mobile-nav-item js-close-mobile" href="#pricing">Precios</a>
+  <a class="mobile-nav-item js-close-mobile" href="#">Blog</a>
+  <div style="display:flex;flex-direction:column;gap:12px;margin-top:auto;padding-top:24px;border-top:1px solid rgba(255,255,255,0.06);">
+    <a class="btn-ghost mobile-nav-item js-close-mobile" href="{% url 'account:login' %}" style="text-align:center;">Iniciar Sesión</a>
+    <a class="btn-primary mobile-nav-item js-close-mobile" href="{% url 'account:register' %}" style="text-align:center;padding:12px;text-decoration:none;">Prueba Gratis</a>
   </div>
 </div>
 
 <!-- NAVBAR -->
 <nav id="navbar">
-  <div style="max-width:1280px;margin:0 auto;padding:0 32px;height:80px;display:flex;align-items:center;justify-content:space-between;">
-    <a href="{% url 'landing:index' %}" style="display:flex;align-items:center;gap:10px;text-decoration:none;">
+  <div class="nav-container" style="max-width:1280px;margin:0 auto;padding:0 32px;height:80px;display:flex;align-items:center;justify-content:space-between;">
+    <a href="{% url 'landing:index' %}" style="display:flex;align-items:center;gap:10px;text-decoration:none;z-index:50;">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52" width="36" height="36">
         <defs>
           <linearGradient id="flowGrad" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -51,7 +59,7 @@
       <a class="btn-ghost hidden md:block" href="{% url 'account:login' %}" style="padding:10px 24px;font-size:14px;">Iniciar Sesión</a>
       <a class="btn-primary hidden md:block" href="{% url 'account:register' %}" style="padding:10px 24px;font-size:14px;">Prueba Gratis</a>
       <!-- Hamburger -->
-      <button id="hamburger" class="md:hidden" onclick="toggleMobile()" style="background:none;border:none;color:rgba(229,225,228,0.8);cursor:none;padding:8px;">
+      <button id="hamburger" class="md:hidden" style="background:none;border:none;color:rgba(229,225,228,0.8);cursor:pointer;padding:8px;z-index:50;">
         <span class="material-symbols-outlined" style="font-size:28px;">menu</span>
       </button>
     </div>
