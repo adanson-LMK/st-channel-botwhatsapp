@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block title %}Conauti Whats - Automatiza tus proyectos sin salir de WhatsApp{% endblock %}
+{% block title %}Flowchat - Automatiza tus proyectos sin salir de WhatsApp{% endblock %}
 
 {% block extra_css %}
 <link rel="stylesheet" href="{% static 'landing/css/landing.css' %}">
@@ -56,7 +56,7 @@
           <div style="width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,#43e97b,#38f9d7);border:2px solid #131315;"></div>
         </div>
         <div>
-          <p style="font-size:13px;color:rgba(229,225,228,0.5);"><strong style="color:rgba(229,225,228,0.85);">+500 empresas</strong> ya usan Conauti Whats</p>
+          <p style="font-size:13px;color:rgba(229,225,228,0.5);"><strong style="color:rgba(229,225,228,0.85);">+500 empresas</strong> ya usan Flowchat</p>
           <div style="display:flex;gap:2px;margin-top:2px;">
             <span style="color:#f59e0b;font-size:12px;">★★★★★</span>
             <span style="font-size:11px;color:rgba(229,225,228,0.4);margin-left:4px;">4.9/5</span>
@@ -74,7 +74,7 @@
             <span class="material-symbols-outlined" style="font-size:20px;color:#131315;">smart_toy</span>
           </div>
           <div>
-            <p style="font-weight:700;font-size:14px;color:#fff;">@ConautiWhats</p>
+            <p style="font-weight:700;font-size:14px;color:#fff;">@Flowchat</p>
             <p style="font-size:11px;color:#25d366;">● online · procesando</p>
           </div>
           <span class="material-symbols-outlined" style="margin-left:auto;color:rgba(255,255,255,0.3);font-size:20px;">more_vert</span>
@@ -156,9 +156,7 @@
 
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:0;position:relative;">
 
-      <!-- Connector lines -->
-      <div style="position:absolute;top:52px;left:calc(16.66% + 52px);right:calc(16.66% + 52px);height:1px;background:linear-gradient(90deg,rgba(0,240,255,0.4),rgba(16,185,129,0.4));pointer-events:none;" class="hidden lg:block"></div>
-
+      
       <div class="reveal reveal-delay-1" style="text-align:center;padding:32px 40px 40px;">
         <div style="position:relative;display:inline-flex;margin-bottom:24px;">
           <div style="width:80px;height:80px;border-radius:50%;background:rgba(0,240,255,0.08);border:1px solid rgba(0,240,255,0.2);display:flex;align-items:center;justify-content:center;position:relative;z-index:1;">
@@ -168,7 +166,7 @@
         </div>
         <div style="display:inline-block;background:rgba(0,240,255,0.1);color:var(--cyan);font-size:11px;font-weight:700;padding:3px 10px;border-radius:9999px;margin-bottom:12px;letter-spacing:0.1em;">PASO 01</div>
         <h4 class="font-clash" style="font-size:26px;font-weight:700;margin-bottom:12px;">Invita</h4>
-        <p style="color:rgba(229,225,228,0.5);line-height:1.6;font-size:15px;">Agrega a @ConautiWhats a tu grupo de WhatsApp en un clic como un miembro más.</p>
+        <p style="color:rgba(229,225,228,0.5);line-height:1.6;font-size:15px;">Agrega a @Flowchat a tu grupo de WhatsApp en un clic como un miembro más.</p>
       </div>
 
       <div class="reveal reveal-delay-2" style="text-align:center;padding:32px 40px 40px;">
@@ -226,7 +224,7 @@
 
       <div class="reveal reveal-delay-3" style="padding:48px 40px;background:#131315;text-align:center;">
         <div class="font-clash" style="font-size:72px;font-weight:200;line-height:1;margin-bottom:12px;">
-          <span style="color:var(--cyan);">3</span><span style="font-size:36px;color:rgba(229,225,228,0.3);">m</span>
+          <span id="counter-3" style="color:var(--cyan);" data-target="3" data-suffix="m">0</span><span style="font-size:36px;color:rgba(229,225,228,0.3);">m</span>
         </div>
         <p style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:0.15em;color:rgba(229,225,228,0.4);margin-bottom:8px;">ROI Cycle</p>
         <p style="font-size:13px;color:rgba(229,225,228,0.3);font-family:monospace;">RETORNO PROMEDIO</p>
@@ -261,7 +259,7 @@
             <span style="color:#f59e0b;font-size:16px;">★★★★★</span>
           </div>
           <p style="font-size:16px;line-height:1.7;color:rgba(229,225,228,0.75);font-weight:300;font-style:italic;margin-bottom:28px;">
-            "Conauti Whats eliminó el 90% de las reuniones de seguimiento. Ahora el equipo simplemente coordina por WhatsApp y el dashboard se actualiza solo."
+            "Flowchat eliminó el 90% de las reuniones de seguimiento. Ahora el equipo simplemente coordina por WhatsApp y el dashboard se actualiza solo."
           </p>
         </div>
         <div style="display:flex;align-items:center;gap:14px;padding-top:20px;border-top:1px solid rgba(255,255,255,0.05);">
@@ -297,7 +295,7 @@
             <span style="color:#f59e0b;font-size:16px;">★★★★★</span>
           </div>
           <p style="font-size:16px;line-height:1.7;color:rgba(229,225,228,0.75);font-weight:300;font-style:italic;margin-bottom:28px;">
-            "Implementamos Conauti Whats en menos de 5 minutos. No tuvimos que entrenar a nadie; siguen usando WhatsApp igual, pero con orden total."
+            "Implementamos Flowchat en menos de 5 minutos. No tuvimos que entrenar a nadie; siguen usando WhatsApp igual, pero con orden total."
           </p>
         </div>
         <div style="display:flex;align-items:center;gap:14px;padding-top:20px;border-top:1px solid rgba(255,255,255,0.05);">
@@ -433,7 +431,7 @@
           <span class="material-symbols-outlined chevron" style="color:var(--cyan);">expand_more</span>
         </summary>
         <div class="faq-body">
-          <p style="padding:0 28px 24px;color:rgba(229,225,228,0.55);line-height:1.7;font-size:15px;">No. Conauti Whats opera directamente sobre tus grupos de WhatsApp. Solo agregas al agente como a un contacto más y comenzará a organizar todo de inmediato.</p>
+          <p style="padding:0 28px 24px;color:rgba(229,225,228,0.55);line-height:1.7;font-size:15px;">No. Flowchat opera directamente sobre tus grupos de WhatsApp. Solo agregas al agente como a un contacto más y comenzará a organizar todo de inmediato.</p>
         </div>
       </details>
 

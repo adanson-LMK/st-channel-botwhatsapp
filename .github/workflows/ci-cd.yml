@@ -36,7 +36,7 @@ jobs:
       with:
         context: .
         push: true
-        tags: gcr.io/${{ secrets.GCP_PROJECT_ID }}/conauti-whats:latest
+        tags: gcr.io/${{ secrets.GCP_PROJECT_ID }}/flowchat:latest
 
   deploy:
     needs: build
@@ -52,4 +52,4 @@ jobs:
       uses: google-github-actions/setup-gcloud@v2
     - name: Deploy to Cloud Run
       run: |
-        gcloud run deploy conauti-whats           --image gcr.io/${{ secrets.GCP_PROJECT_ID }}/conauti-whats:latest           --platform managed           --region us-central1           --allow-unauthenticated
+        gcloud run deploy flowchat           --image gcr.io/${{ secrets.GCP_PROJECT_ID }}/flowchat:latest           --platform managed           --region us-central1           --allow-unauthenticated

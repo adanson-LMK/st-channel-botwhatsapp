@@ -1,5 +1,5 @@
 """
-ASGI config para st_whatsapp project.
+ASGI config para flowchat project.
 """
 
 import os

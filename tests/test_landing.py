@@ -11,7 +11,7 @@ def test_landing_page_loads():
     client = Client()
     response = client.get('/')
     assert response.status_code == 200
-    assert 'Conauti Whats' in response.content.decode()
+    assert 'Flowchat' in response.content.decode()
 
 
 @pytest.mark.django_db

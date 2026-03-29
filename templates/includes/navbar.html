@@ -1,29 +1,55 @@
 <!-- Mobile Menu -->
 <div id="mobile-menu">
-  <a href="#hero" onclick="closeMobile()">Inicio</a>
-  <a href="#problem" onclick="closeMobile()">Problema</a>
-  <a href="#how" onclick="closeMobile()">Cómo Funciona</a>
-  <a href="#roi" onclick="closeMobile()">Beneficios</a>
-  <a href="#pricing" onclick="closeMobile()">Precios</a>
-  <button class="btn-primary px-8 py-4 text-lg mt-4" onclick="closeMobile()">Prueba Gratis</button>
+  <a class="mobile-nav-item" href="{% url 'landing:index' %}">Inicio</a>
+  <a class="mobile-nav-item" href="#problem" onclick="closeMobile()">Problema</a>
+  <a class="mobile-nav-item" href="#how" onclick="closeMobile()">Cómo Funciona</a>
+  <a class="mobile-nav-item" href="#roi" onclick="closeMobile()">Beneficios</a>
+  <a class="mobile-nav-item" href="#pricing" onclick="closeMobile()">Precios</a>
+  <a class="mobile-nav-item" href="#">Blog</a>
+  <div style="display:flex;flex-direction:column;gap:12px;margin-top:16px;">
+    <a class="btn-ghost mobile-nav-item" href="{% url 'account:login' %}" style="text-align:center;">Iniciar Sesión</a>
+    <button class="btn-primary mobile-nav-item" onclick="closeMobile()">Prueba Gratis</button>
+  </div>
 </div>
 
 <!-- NAVBAR -->
 <nav id="navbar">
   <div style="max-width:1280px;margin:0 auto;padding:0 32px;height:80px;display:flex;align-items:center;justify-content:space-between;">
-    <div class="font-clash" style="font-size:22px;font-weight:800;letter-spacing:-0.5px;color:var(--cyan);">CONAUTI WHATS</div>
+    <a href="{% url 'landing:index' %}" style="display:flex;align-items:center;gap:10px;text-decoration:none;">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52" width="36" height="36">
+        <defs>
+          <linearGradient id="flowGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#00f0ff" />
+            <stop offset="100%" stop-color="#10B981" />
+          </linearGradient>
+        </defs>
+        <polygon points="26,4 46,15 46,37 26,48 6,37 6,15" fill="none" stroke="url(#flowGrad)" stroke-width="3" stroke-linejoin="round"/>
+        <line x1="26" y1="26" x2="14" y2="19" stroke="#10B981" stroke-width="2" />
+        <line x1="26" y1="26" x2="38" y2="19" stroke="#10B981" stroke-width="2" />
+        <line x1="26" y1="26" x2="26" y2="40" stroke="#10B981" stroke-width="2" />
+        <circle cx="14" cy="19" r="3" fill="#10B981" />
+        <circle cx="38" cy="19" r="3" fill="#10B981" />
+        <circle cx="26" cy="40" r="3" fill="#10B981" />
+        <circle cx="26" cy="26" r="5" fill="url(#flowGrad)" />
+      </svg>
+      <div style="display:flex;flex-direction:column;line-height:1.1;">
+        <span class="font-clash" style="font-size:20px;font-weight:800;letter-spacing:-0.5px;color:var(--cyan);">FLOWCHAT</span>
+        <span style="font-size:10px;font-weight:600;letter-spacing:2px;color:rgba(0,240,255,0.5);text-transform:uppercase;">by conauti</span>
+      </div>
+    </a>
 
     <div class="hidden md:flex" style="gap:36px;align-items:center;">
-      <a class="nav-link" href="#hero">Inicio</a>
+      <a class="nav-link" href="{% url 'landing:index' %}">Inicio</a>
       <a class="nav-link" href="#problem">Problema</a>
       <a class="nav-link" href="#how">Cómo Funciona</a>
       <a class="nav-link" href="#roi">Beneficios</a>
       <a class="nav-link" href="#pricing">Precios</a>
+      <a class="nav-link" href="#">Blog</a>
     </div>
 
     <div style="display:flex;gap:12px;align-items:center;">
-      <button class="btn-ghost hidden md:block" style="padding:10px 24px;font-size:14px;">Iniciar Sesión</button>
-      <button class="btn-primary hidden md:block" style="padding:10px 24px;font-size:14px;">Prueba Gratis</button>
+      <a class="btn-ghost hidden md:block" href="{% url 'account:login' %}" style="padding:10px 24px;font-size:14px;">Iniciar Sesión</a>
+      <a class="btn-primary hidden md:block" href="{% url 'account:register' %}" style="padding:10px 24px;font-size:14px;">Prueba Gratis</a>
       <!-- Hamburger -->
       <button id="hamburger" class="md:hidden" onclick="toggleMobile()" style="background:none;border:none;color:rgba(229,225,228,0.8);cursor:none;padding:8px;">
         <span class="material-symbols-outlined" style="font-size:28px;">menu</span>

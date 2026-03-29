@@ -1,9 +1,11 @@
+{% load static %}
 <!DOCTYPE html>
 <html class="dark" lang="es">
 <head>
   <meta charset="utf-8"/>
   <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-  <title>{% block title %}Conauti Whats | AI Multi-Agent for WhatsApp{% endblock %}</title>
+  <link rel="icon" type="image/svg+xml" href="{% static 'favicon.svg' %}"/>
+  <title>{% block title %}Flowchat | AI Multi-Agent Platform{% endblock %}</title>
 
   <!-- Fonts & CDN -->
   <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
@@ -12,7 +14,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
 
   <!-- Global Styles -->
-  {% load static %}
   <link rel="stylesheet" href="{% static 'landing/css/styles.css' %}">
 
   {% block extra_css %}{% endblock %}

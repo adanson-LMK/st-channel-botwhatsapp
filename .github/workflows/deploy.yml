@@ -24,7 +24,7 @@ jobs:
 
     - name: Build Docker image
       env:
-        IMAGE_NAME: gcr.io/${{ secrets.GCP_PROJECT_ID }}/st-whatsapp
+        IMAGE_NAME: gcr.io/${{ secrets.GCP_PROJECT_ID }}/flowchat
         IMAGE_TAG: latest
       run: |
         docker build -t $IMAGE_NAME:$IMAGE_TAG .
@@ -32,14 +32,14 @@ jobs:
 
     - name: Push image to Container Registry
       env:
-        IMAGE_NAME: gcr.io/${{ secrets.GCP_PROJECT_ID }}/st-whatsapp
+        IMAGE_NAME: gcr.io/${{ secrets.GCP_PROJECT_ID }}/flowchat
       run: |
         docker push $IMAGE_NAME:latest
         docker push $IMAGE_NAME:$GITHUB_SHA
 
     - name: Deploy to App Engine
       run: |
-        gcloud app deploy app.yaml --quiet --image-url=gcr.io/${{ secrets.GCP_PROJECT_ID }}/st-whatsapp:$GITHUB_SHA
+        gcloud app deploy app.yaml --quiet --image-url=gcr.io/${{ secrets.GCP_PROJECT_ID }}/flowchat:$GITHUB_SHA
 
     - name: Run database migrations
       run: |

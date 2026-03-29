@@ -1,4 +1,4 @@
-# 🚀 ST-WHATSAPP: Conauti Whats Landing Page
+# 🚀 FLOWCHAT: Flowchat Landing Page
 
 > El primer sistema multiagente de IA para WhatsApp que convierte conversaciones en acción.
 
@@ -29,8 +29,8 @@
 ### 1. Clonar el repositorio
 
 ```bash
-git clone https://github.com/tuusuario/st-whatsapp.git
-cd st-whatsapp
+git clone https://github.com/tuusuario/flowchat.git
+cd flowchat
 ```
 
 ### 2. Crear entorno virtual
@@ -173,7 +173,7 @@ GitHub Actions automáticamente:
 ## 📁 Estructura del Proyecto
 
 ```
-st-whatsapp/
+flowchat/
 ├── config/                    # Configuración centralizada
 │   ├── settings/
 │   │   ├── base.py           # Base de todas las configs
@@ -277,7 +277,7 @@ python manage.py check --deploy
 
 ```bash
 # Ensure PYTHONPATH includes project root
-export PYTHONPATH="${PYTHONPATH}:/path/to/st-whatsapp"
+export PYTHONPATH="${PYTHONPATH}:/path/to/flowchat"
 ```
 
 ### "Database connection refused"

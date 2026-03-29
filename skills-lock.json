@@ -1,0 +1,25 @@
+{
+  "version": 1,
+  "skills": {
+    "django-expert": {
+      "source": "jeffallan/claude-skills",
+      "sourceType": "github",
+      "computedHash": "7137c8d72f2b6c9fd07b040402496f21386702d9eaface4c7b35dab4a0fa8577"
+    },
+    "django-security": {
+      "source": "affaan-m/everything-claude-code",
+      "sourceType": "github",
+      "computedHash": "7d7a2cd3340482d1a99b5f0a5ab2929ad7a5259c81973d09e8676fb19565c624"
+    },
+    "frontend-design": {
+      "source": "anthropics/skills",
+      "sourceType": "github",
+      "computedHash": "516bd2154eb843a8240e43d5b285229129853114ad7075a5e141e1c08e408c84"
+    },
+    "supabase-postgres-best-practices": {
+      "source": "supabase/agent-skills",
+      "sourceType": "github",
+      "computedHash": "e3ba3d760c5f4cc43b02a91fb8924f726c7818f95cc35d79d0a606ca622b72f5"
+    }
+  }
+}

@@ -1,5 +1,5 @@
 """
-WSGI config para st_whatsapp project.
+WSGI config para flowchat project.
 """
 
 import os
